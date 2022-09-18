@@ -1,7 +1,14 @@
+interface direccion{
+        calle:string,
+        pais:string,
+        estado:string
+}
+
 interface Alumno3{
         nombre:string,
         edad:number,
-        direccion:()=>void;
+        direccion:direccion;
+        mostrartDireccion:()=>void;
 }
 
 const AlumnosUTL:Alumno3={
@@ -10,13 +17,12 @@ const AlumnosUTL:Alumno3={
         direccion:{
                 calle:'Veracruz',
                 pais:'MX',
-                stado:'GTO'
+                estado:'GTO'
+        },
+        mostrartDireccion(){
+                return (this.nombre +', '+this.direccion.estado+', '+this.direccion.pais+', '+this.direccion.calle+', '+this.edad);
         }
 }
 
-function mostratDireccion(){
-        return nombre +', '+direccion.estado+', '+direccion.pais;
-}
-
-const direccion = AlumnosUTL.mostratDireccion();
+const direccion = AlumnosUTL.mostrartDireccion();
 console.log(direccion);
